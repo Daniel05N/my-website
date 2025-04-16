@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Daniel Neyra</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    body {
+      font-family: 'Inter', sans-serif;
+      background: #0f0f1a;
+      color: #fff;
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 2rem 3rem;
+      background: transparent;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
+    nav {
+      background: rgba(255, 255, 255, 0.1);
+      padding: 0.5rem 1rem;
+      border-radius: 9999px;
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+    }
+    nav a {
+      margin: 0 0.5rem;
+      color: #ccc;
+      text-decoration: none;
+      font-weight: 500;
+      transition: color 0.3s;
+    }
+    nav a:hover {
+      color: #fff;
+    }
+    .language-switch {
+      display: flex;
+      align-items: center;
+    }
+    .switch {
+      position: relative;
+      display: inline-block;
+      width: 50px;
+      height: 26px;
+      margin-left: 0.5rem;
+    }
+    .switch input {
+      opacity: 0;
+      width: 0;
+      height: 0;
+    }
+    .slider {
+      position: absolute;
+      cursor: pointer;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background-color: #ccc;
+      transition: .4s;
+      border-radius: 34px;
+    }
+    .slider:before {
+      position: absolute;
+      content: "";
+      height: 20px;
+      width: 20px;
+      left: 3px;
+      bottom: 3px;
+      background-color: white;
+      transition: .4s;
+      border-radius: 50%;
+    }
+    input:checked + .slider {
+      background-color: #38bdf8;
+    }
+    input:checked + .slider:before {
+      transform: translateX(24px);
+    }
+    .switch-label {
+      font-size: 0.9rem;
+      margin-right: 0.3rem;
+      color: #ccc;
+    }
+    .hero {
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      padding: 2rem;
+    }
+    .hero img {
+      width: 120px;
+      height: 120px;
+      border-radius: 50%;
+      margin-bottom: 1rem;
+      border: 3px solid #fff;
+    }
+    .hero h1 {
+      font-size: 2rem;
+      max-width: 600px;
+      margin-bottom: 1rem;
+    }
+    .hero strong {
+      color: #38bdf8;
+    }
+    .buttons {
+      margin-top: 2rem;
+    }
+    .buttons a {
+      padding: 0.75rem 1.5rem;
+      border: 2px solid #38bdf8;
+      margin: 0 0.5rem;
+      border-radius: 30px;
+      text-decoration: none;
+      color: #38bdf8;
+      transition: background 0.3s, color 0.3s;
+      cursor: pointer;
+    }
+    .buttons a:hover {
+      background: #38bdf8;
+      color: #0f0f1a;
+    }
+    .modal {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.8);
+      justify-content: center;
+      align-items: center;
+      z-index: 2000;
+    }
+    .modal-content {
+      background: #1f1f2e;
+      padding: 2rem;
+      border-radius: 1rem;
+      width: 90%;
+      max-width: 400px;
+    }
+    .modal-content h2 {
+      margin-bottom: 1rem;
+    }
+    .modal-content input,
+    .modal-content textarea {
+      width: 100%;
+      margin-bottom: 1rem;
+      padding: 0.5rem;
+      border-radius: 0.5rem;
+      border: none;
+    }
+    .modal-content button {
+      background: #38bdf8;
+      color: #0f0f1a;
+      padding: 0.5rem 1rem;
+      border: none;
+      border-radius: 0.5rem;
+      cursor: pointer;
+    }
+    .close {
+      position: absolute;
+      top: 2rem;
+      right: 2rem;
+      font-size: 2rem;
+      color: white;
+      cursor: pointer;
+    }
+
+    .home-link {
+    color: white;
+    text-decoration: none;
+    font-weight: 800;
+    }
+    .home-link:hover {
+    text-decoration: underline;
+    }
+
+  </style>
+</head>
+<body>
+    <header>
+        <h2><a href="site.html" class="home-link">Daniel Neyra</a></h2>
+        <nav>
+          <a id="nav-about_me" href="about-me.html">About me</a>
+          <a id="nav-skills" href="skills.html">Skills</a>
+          <a id="nav-experience" href="experience.html">Experience</a>
+          <a id="nav-projects" href="projects.html">Projects</a>
+          <div class="language-switch">
+            <span class="switch-label">EN</span>
+            <label class="switch">
+              <input type="checkbox" onchange="toggleLanguage(this)">
+              <span class="slider"></span>
+            </label>
+            <span class="switch-label">ES</span>
+          </div>
+        </nav>
+      </header>
+
+  <section class="hero">
+    <img src="image2.jpg" alt="Daniel Neyra" />
+    <h1 id="hero-text">Hello, I'm <strong>Daniel Neyra</strong>. I'm passionate about web development,design and programming.</h1>
+    <div class="buttons">
+      <a href="https://instagram.com/daxnen" target="_blank">Instagram</a>
+      <a onclick="document.getElementById('contactModal').style.display='flex'">Contact Me</a>
+    </div>
+  </section>
+
+  <div class="modal" id="contactModal">
+    <div class="modal-content">
+      <span class="close" onclick="document.getElementById('contactModal').style.display='none'">&times;</span>
+      <h2>Contact Me</h2>
+      <form action="https://formspree.io/f/yourcode" method="POST">
+        <input type="email" name="email" placeholder="Your email" required />
+        <textarea name="message" placeholder="Your message" required></textarea>
+        <button type="submit">Send</button>
+      </form>
+    </div>
+  </div>
+
+<script>
+  function toggleLanguage(switchInput) {
+    const isSpanish = switchInput.checked;
+    
+    document.getElementById('title-name').textContent = 'Daniel Neyra';
+    document.getElementById('nav-about_me').textContent = isSpanish ? 'Sobre mí' : 'About me';
+    document.getElementById('nav-skills').textContent = isSpanish ? 'Skills' : 'Skills';
+    document.getElementById('nav-experience').textContent = isSpanish ? 'Experiencia' : 'Experience';
+    document.getElementById('nav-projects').textContent = isSpanish ? 'Proyectos' : 'Projects';
+
+    document.getElementById('hero-text').innerHTML = isSpanish
+      ? "Hola, soy <strong>Daniel Neyra</strong>. Me apasiona el desarrollo, el diseño web y la programación."
+      : "Hello, I'm <strong>Daniel Neyra</strong>. I'm passionate about web development, design and programming.";
+
+    document.getElementById('btn-contact').textContent = isSpanish ? 'Contáctame' : 'Contact Me';
+    document.getElementById('form-title').textContent = isSpanish ? 'Contáctame' : 'Contact Me';
+    document.getElementById('form-send').textContent = isSpanish ? 'Enviar' : 'Send';
+  }
+</script>
+</body>
+</html>
